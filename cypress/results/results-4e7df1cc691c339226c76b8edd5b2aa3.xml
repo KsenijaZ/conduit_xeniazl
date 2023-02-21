@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="5.358" tests="1" failures="0">
-  <testsuite name="Root Suite" timestamp="2023-02-21T14:10:41" tests="0" file="cypress/e2e/1-getting-started/homePage.cy.js" time="0.000" failures="0">
-  </testsuite>
-  <testsuite name="Login Page tests" timestamp="2023-02-21T14:10:41" tests="1" time="5.339" failures="0">
-    <testcase name="Login Page tests Global feed test" time="5.291" classname="Global feed test">
-    </testcase>
-  </testsuite>
-</testsuites>

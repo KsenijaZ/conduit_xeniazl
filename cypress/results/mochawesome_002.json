@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-02-21T15:30:53.171Z",
+    "end": "2023-02-21T15:31:01.681Z",
+    "duration": 8510,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e65dce28-8760-4d3f-bbe9-3d26f8ed2eda",
+      "title": "",
+      "fullFile": "cypress/e2e/1-getting-started/newArticle.cy.js",
+      "file": "cypress/e2e/1-getting-started/newArticle.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a082cf8b-5eaa-483f-996b-3da47ad331c0",
+          "title": "New Article tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "publish and delete published article via cypress api",
+              "fullTitle": "New Article tests publish and delete published article via cypress api",
+              "timedOut": null,
+              "duration": 8361,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const postTitle = 'Post title test' + Math.floor(Math.random() * 100);\nconst bodyRequest = {\n  \"article\": {\n    \"tagList\": [],\n    \"title\": postTitle,\n    \"description\": \"api testing\",\n    \"body\": \"via postman and cypress\"\n  }\n};\ncy.get('@token').then(token => {\n  cy.request({\n    url: Cypress.env(\"apiUrl\") + '/api/articles/',\n    headers: {\n      'Authorization': 'Token ' + token\n    },\n    method: 'POST',\n    body: bodyRequest\n  }).then(response => {\n    expect(response.status).to.equal(200);\n  });\n  cy.contains('Global Feed').click();\n  cy.get('.article-preview').first().click();\n  cy.get('.article-actions .btn-outline-danger').click();\n  cy.contains('Global Feed').click();\n  cy.request({\n    url: Cypress.env(\"apiUrl\") + '/api/articles?limit=10&offset=0',\n    headers: {\n      'Authorization': 'Token ' + token\n    },\n    method: 'GET'\n  }).its('body').then(body => {\n    cy.log(body);\n    expect(body.articles[0].title).not.to.equal(postTitle);\n  });\n});",
+              "err": {},
+              "uuid": "7104e0dd-87e2-475c-bb96-6db7f8939dd9",
+              "parentUUID": "a082cf8b-5eaa-483f-996b-3da47ad331c0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7104e0dd-87e2-475c-bb96-6db7f8939dd9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8361,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

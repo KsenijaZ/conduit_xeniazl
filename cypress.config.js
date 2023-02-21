@@ -6,6 +6,14 @@ module.exports = defineConfig({
   reporterOptions: {
     configFile: 'reporter-config.json',
   },
+
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/results',
+    overwrite: false,
+    html: false,
+    json: true,
+  },
   
   e2e: {
     baseUrl: "https://conduit-app.ksenijazlatic.com/",

@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "delete:reports": "rm -r cypress/results/* || true",
+    "delete:reports": "rm cypress/results/* || true",
     "prereport": "npm run delete:reports",
+    "report": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json",
     "start": "ng serve",
     "cypress": "cypress open",
     "cypress:run": "npx cypress run",
-    "cypress:e2e": "start-test start http-get://conduit-app.ksenijazlatic.com/ cypress:run",    
+    "cypress:e2e": "start-test start http-get://conduit-app.ksenijazlatic.com/ cypress:run",
     "mochawesome:merge": "npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json && npx marge mochawesome.json",
     "cy:open_dev": "npx cypress open --env username=myUserName02,password:pass777",
     "cy:open_process": "npx cypress open --env username=$DB_USERNAME,password=$PASSWORD"
@@ -63,7 +64,7 @@
     "concat-map": "^0.0.1",
     "core-util-is": "^1.0.2",
     "cross-spawn": "^7.0.3",
-    "cypress": "^12.5.1",
+    "cypress": "^12.6.0",
     "dashdash": "^1.14.1",
     "dayjs": "^1.11.7",
     "debug": "^4.3.4",
@@ -187,6 +188,9 @@
   "devDependencies": {
     "cypress-multi-reporters": "^1.6.2",
     "mocha-junit-reporter": "^2.2.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.2",
+    "mochawesome-report-generator": "^6.2.0",
     "start-server-and-test": "^1.15.4"
   }
 }
