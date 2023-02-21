@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="4.964" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-02-21T14:11:21" tests="0" file="cypress/e2e/1-getting-started/tags.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Tags tests" timestamp="2023-02-21T14:11:21" tests="1" time="4.938" failures="0">
+    <testcase name="Tags tests  Verify popular tags display" time="4.869" classname=" Verify popular tags display">
+    </testcase>
+  </testsuite>
+</testsuites>

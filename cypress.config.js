@@ -1,18 +1,34 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+
+  reporter: 'cypress-multi-reporters',
+  reporterOptions: {
+    configFile: 'reporter-config.json',
+  },
+  
   e2e: {
     baseUrl: "https://conduit-app.ksenijazlatic.com/",
 
     env: {
-      "validUserName": "myUserName01",
+      username: "myUserName01",
+      password: "pass123",
       "validEmail": "myuser@gmail.com",
       "validPassword": "pass123",
       "apiUrl": "https://api.realworld.io"
     },
+    retries: {
+      runMode: 2,
+      openMode: 0
+    },
     
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+
+      const username = process.env.DB_USERNAME
+      const password = process.env.PROCESS
+
+      config.env = {username, password}
+      return config
     },
   },
 });

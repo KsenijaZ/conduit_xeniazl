@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="4.700" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-02-21T14:11:12" tests="0" file="cypress/e2e/1-getting-started/register.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Login Page tests" timestamp="2023-02-21T14:11:12" tests="1" time="4.674" failures="0">
+    <testcase name="Login Page tests Register with valid data" time="4.638" classname="Register with valid data">
+    </testcase>
+  </testsuite>
+</testsuites>
